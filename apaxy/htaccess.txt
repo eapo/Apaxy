@@ -15,7 +15,7 @@
     	IndexHeadInsert "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />"
 
 	# HIDE /theme DIRECTORY
-	IndexIgnore .htaccess /theme
+	IndexIgnore .htaccess /theme favicon.ico .ftpquota .DS_Store icons *.log *,v *,t .??* *~ *#
 
 #
 # GENERAL ICONS (BLANK, DIRECTORY, PARENT DIRECTORY)
@@ -25,57 +25,111 @@
 	AddIcon theme/icons/folder.png ^^DIRECTORY^^
 	AddIcon theme/icons/folder-home.png ..
 	
-	AddIconByType (TXT,theme/icons/text.png) text/*
-	AddIconByType (IMG,theme/icons/image.png) image/*
-	AddIconByType (SND,theme/icons/audio.png) audio/*
-	AddIconByType (VID,theme/icons/video.png) video/*
+	AddIconByType (TEXT,theme/icons/text.png) text/*
+	AddIconByType (IMAGE,theme/icons/image.png) image/*
+	AddIconByType (AUDIO,theme/icons/audio.png) audio/*
+	AddIconByType (VIDEO,theme/icons/video.png) video/*
+	AddIconByType (APP,theme/icons/exe.png) application/*
+
+	AddIconByEncoding (ZIP,theme/icons/zip.png) x-compress x-gzip
 
 #
 # EXTENSION SPECIFIC ICONS
 #
 
-	AddIcon theme/icons/archive.png .7z .bz2 .cab .gz .tar
-	AddIcon theme/icons/audio.png .aac .aif .aifc .aiff .ape .au .flac .iff .m4a .mid .mp3 .mpa .ra .wav .wma .f4a .f4b .oga .ogg .xm .it .s3m .mod
-	AddIcon theme/icons/bin.png .bin .hex
-	AddIcon theme/icons/bmp.png .bmp
-	AddIcon theme/icons/c.png .c
-	AddIcon theme/icons/calc.png .xlsx .xlsm .xltx .xltm .xlam .xlr .xls .csv
-	AddIcon theme/icons/cd.png .iso
-	AddIcon theme/icons/cpp.png .cpp
-	AddIcon theme/icons/css.png .css .sass .scss
-	AddIcon theme/icons/deb.png .deb
-	AddIcon theme/icons/doc.png .doc .docx .docm .dot .dotx .dotm .log .msg .odt .pages .rtf .tex .wpd .wps
-	AddIcon theme/icons/draw.png .svg .svgz
-	AddIcon theme/icons/eps.png .ai .eps
-	AddIcon theme/icons/exe.png .exe
-	AddIcon theme/icons/gif.png .gif
-	AddIcon theme/icons/h.png .h
-	AddIcon theme/icons/html.png .html .xhtml .shtml .htm .URL .url
-	AddIcon theme/icons/ico.png .ico
-	AddIcon theme/icons/java.png .jar
-	AddIcon theme/icons/jpg.png .jpg .jpeg .jpe
-	AddIcon theme/icons/js.png .js .json
-	AddIcon theme/icons/markdown.png .md
-	AddIcon theme/icons/package.png .pkg .dmg
-	AddIcon theme/icons/pdf.png .pdf
-	AddIcon theme/icons/php.png .php .phtml
-	AddIcon theme/icons/playlist.png .m3u .m3u8 .pls .pls8
-	AddIcon theme/icons/png.png .png
-	AddIcon theme/icons/ps.png .ps
-	AddIcon theme/icons/psd.png .psd
-	AddIcon theme/icons/py.png .py
-	AddIcon theme/icons/rar.png .rar
-	AddIcon theme/icons/rb.png .rb
-	AddIcon theme/icons/rpm.png .rpm
-	AddIcon theme/icons/rss.png .rss
-	AddIcon theme/icons/script.png .bat .cmd .sh
-	AddIcon theme/icons/sql.png .sql
-	AddIcon theme/icons/tiff.png .tiff .tif
-	AddIcon theme/icons/text.png .txt .nfo
-	AddIcon theme/icons/video.png .asf .asx .avi .flv .mkv .mov .mp4 .mpg .rm .srt .swf .vob .wmv .m4v .f4v .f4p .ogv
-	AddIcon theme/icons/xml.png .xml
-	AddIcon theme/icons/zip.png .zip
-	DefaultIcon theme/icons/default.png
+	AddIcon (ARCHIVE,theme/icons/archive.png) .7z .bz2 .cab .gz .tar
+	AddIcon (AUDIO,theme/icons/audio.png) .aac .aif .aifc .aiff .ape .au .flac .iff .m4a .mid .mp3 .mpa .ra .wav .wma .f4a .f4b .oga .ogg .xm .it .s3m .mod
+	AddIcon (BIN,theme/icons/bin.png) .bin .hex
+	AddIcon (BMP,theme/icons/bmp.png) .bmp
+	AddIcon (C,theme/icons/c.png) .c
+	AddIcon (CALC,theme/icons/calc.png) .xlsx .xlsm .xltx .xltm .xlam .xlr .xls .csv
+	AddIcon (CD,theme/icons/cd.png) .iso
+	AddIcon (CPP,theme/icons/cpp.png) .cpp
+	AddIcon (CSS,theme/icons/css.png) .css .sass .scss
+	AddIcon (DEB,theme/icons/deb.png) .deb
+	AddIcon (DOC,theme/icons/doc.png) .doc .docx .docm .dot .dotx .dotm .log .msg .odt .pages .rtf .tex .wpd .wps
+	AddIcon (DRAW,theme/icons/draw.png) .svg .svgz
+	AddIcon (EPS,theme/icons/eps.png) .ai .eps
+	AddIcon (EXE,theme/icons/exe.png) .exe
+	AddIcon (GIF,theme/icons/gif.png) .gif
+	AddIcon (H,theme/icons/h.png) .h
+	AddIcon (HTML,theme/icons/html.png) .html .xhtml .shtml .htm .URL .url
+	AddIcon (ICO,theme/icons/ico.png) .ico
+	AddIcon (JAVA,theme/icons/java.png) .jar
+	AddIcon (JPG,theme/icons/jpg.png) .jpg .jpeg .jpe
+	AddIcon (JS,theme/icons/js.png) .js .json
+	AddIcon (MARKDOWN,theme/icons/markdown.png) .md
+	AddIcon (PACKAGE,theme/icons/package.png) .pkg .dmg
+	AddIcon (PDF,theme/icons/pdf.png) .pdf
+	AddIcon (PHP,theme/icons/php.png) .php .phtml
+	AddIcon (PLAYLIST,theme/icons/playlist.png) .m3u .m3u8 .pls .pls8
+	AddIcon (PNG,theme/icons/png.png) .png
+	AddIcon (PS,theme/icons/ps.png) .ps
+	AddIcon (PSD,theme/icons/psd.png) .psd
+	AddIcon (PY,theme/icons/py.png) .py
+	AddIcon (RAR,theme/icons/rar.png) .rar
+	AddIcon (RB,theme/icons/rb.png) .rb
+	AddIcon (RPM,theme/icons/rpm.png) .rpm
+	AddIcon (RSS,theme/icons/rss.png) .rss
+	AddIcon (SCRIPT,theme/icons/script.png) .bat .cmd .sh
+	AddIcon (SQL,theme/icons/sql.png) .sql
+	AddIcon (TIFF,theme/icons/tiff.png) .tiff .tif
+	AddIcon (TEXT,theme/icons/text.png) .txt .nfo
+	AddIcon (VIDEO,theme/icons/video.png) .asf .asx .avi .flv .mkv .mov .mp4 .mpg .rm .srt .swf .vob .wmv .m4v .f4v .f4p .ogv
+	AddIcon (XML,theme/icons/xml.png) .xml
+	AddIcon (ZIP,theme/icons/zip.png) .zip
+
+#
+# EXTENSION SPECIFIC DESCRIPTION
+#
+
+	AddDescription "MPEG Layer 3 Format" .mp3
+	AddDescription "GZIP compressed TAR archive" .tgz .tar.gz
+	AddDescription "GZIP compressed archive" .Z .z .gz
+	AddDescription "RAR compressed archive" .rar
+	AddDescription "TAR compressed archive" .tar
+	AddDescription "ZIP compressed archive" .zip 
+	AddDescription "Compressed archive" .ace .arj .bz .bz2 .cab .jar .lzh 
+	AddDescription "Windows executable file" .exe
+	AddDescription "Common Gateway Interface" .cgi
+	AddDescription "Joint Photographics Experts Group" .jfif .jpg .jpeg .jpe
+	AddDescription "Graphic Interchange Format" .gif
+	AddDescription "Portable Network Graphic" .png
+	AddDescription "Vector graphic" .ps .ai .eps
+	AddDescription "Hypertext Markup Language" .html .xhtml .shtml .htm
+	AddDescription "Cascading Style Sheet" .css
+	AddDescription "DocType Definition" .dtd
+	AddDescription "Extensible Markup Language" .xml
+	AddDescription "Win32 compressed HTML help" .chm
+	AddDescription "Adobe Portable Document Format" .edn .pdf
+	AddDescription "Plain text file" .txt .nfo .faq .readme
+	AddDescription "Unix man page" .man
+	AddDescription "Email data" .eml .mbox
+	AddDescription "Microsoft Word document" .doc
+	AddDescription "PHP: Hypertext Preprocessor script" .php .php3 .php4
+	AddDescription "PHP: Hypertext Preprocessor source code" .phps
+	AddDescription "Javascript" .js
+	AddDescription "Java code" .java
+	AddDescription "Unix shell script" .sh .shar .csh .ksh .command
+	AddDescription "Windows shell script" .bat .cmd
+	AddDescription "Mac OS X shell script" .command
+	AddDescription "Configuration file" .conf
+	AddDescription "Mac OS X terminal" .term
+	AddDescription "BitTorrent file" .torrent
+	AddDescription "Windows link" .lnk .url
+	AddDescription "Windows Media-Audio-/Videodata" .asf .au .avi .wm .wma .wmv
+	AddDescription "Bitmap" .bmp .dib
+	AddDescription "Word Document" .doc .docx .docm .dot .dotx .dotm .msg .odt
+	AddDescription "MIDI-Sequence" .mid .midi .rmi
+	AddDescription "QuickTime Movie" .mov
+	AddDescription "MPEG Format" .mp2v .mpe .mpeg .mpg .mpv2
+	AddDescription "Windows Installer Package" .msi
+	AddDescription "Microsoft PowerPoint Presentation" .ppt .pptx
+	AddDescription "Rich Text Format" .rtf
+	AddDescription "Wavesound" .wav
+	AddDescription "Microsoft Excel Document" .xls .xla .xlsx .xlax
+	AddDescription "Scalable Vector Graphics" .svg .svgz
+	AddDescription "Multimedia playlist" .m3u .m3u8 .pls .pls8
 
 #
 # THEME FILES
