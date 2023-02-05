@@ -1,41 +1,39 @@
-#Apaxy
+# Custom FancyIndexing
 
-Demo: [adamwhitcroft.com/apaxy](http://adamwhitcroft.com/apaxy/)
+Demo: [hej.valto.ro/brand/data/](https://hej.valto.ro/brand/data/)
 
-Apaxy is a customisable theme built to enhance the experience of browsing web directories. It uses the `mod_autoindex` Apache module—and some CSS—to override the default style of a directory listing.
+Custom FancyIndexing is a customisable theme built to enhance the experience of browsing web directories. It uses the `mod_autoindex` Apache module—and some CSS—to override the default style of a directory listing.
 
-##Features
+## Features
 
-Apaxy may be basic, but it gives you a great deal of creative freedom when styling your directory.
+Custom FancyIndexing may be basic, but it gives you a great deal of creative freedom when styling your directory.
 
 * Style your directory listing with CSS.
 * Make it pop with Javascript or jQuery.
 * Add welcome messages, download instructions or copyright notices.
 * Add custom mime type icons (requires editing the `.htaccess` file)
+* SVG icons using FontAwesome Sprites
 
-_Sadly, visual style is all you can work with. It's not possible to alter the generated table structure of the listing directory with Apaxy._
-
-##Installation
+## Installation
 
 Apaxy requires an Apache(2.2.11+) enabled HTTP server.
 
-Let's assume you have a folder named `share` in your server root directory (the path thus being `http://mywebsite.com/share`) that you'd like to use as your listing directory:
+Let's assume you have a folder named `data` in your server root directory (the path thus being `http://mywebsite.com/data`) that you'd like to use as your listing directory:
 
-* [Download](https://github.com/AdamWhitcroft/Apaxy/archive/master.zip) and unzip Apaxy
-* Copy and paste the contents of the `/apaxy` folder to your `/share` folder.
+* [Download](https://github.com/eapo/Custom-FancyIndexing/archive/master.zip) and unzip
+* Copy and paste the contents of the `/apaxy` folder to your `/data` folder.
 * Rename `htaccess.txt` to `.htaccess` in both the `/share` and `/share/theme` folders.
-* [Treat yo'self](http://25.media.tumblr.com/tumblr_lw7q28y0Mz1qanm80o1_500.gif), you're done.
+* [Treat yo'self](https://media.tenor.com/xrldoiZ-bgEAAAAC/bear-dance.gif), you're done.
 
-##Docker iamges
+## Docker images
 
 A [local Demo](http://localhost:8080) can be started with docker.
 `docker-compose build`
 `docker-compose up`
 
+## Custom FancyIndexing themes
 
-##Apaxy themes
-
-If you'd like to alter the default Apaxy theme, look in the `/theme` folder and you'll find the following files:
+If you'd like to alter the default Custom FancyIndexing theme, look in the `/theme` folder and you'll find the following files:
 
 * `header.html`
 * `footer.html`
@@ -43,27 +41,32 @@ If you'd like to alter the default Apaxy theme, look in the `/theme` folder and 
 
 Edit these as you would any other HTML or CSS file.
 
-Adding your own icons is a little more involved. You'll need to edit the main Apaxy `.htaccess` file. Look for the following as an example:
+Adding your own icons is a little more involved. You'll need to edit the main Custom FancyIndexing `.htaccess` file. Look for the following as an example:
 
-    AddIcon theme/icons/gif.png .gif
+    AddIcon (PDF,/data/theme/svg.php?q=file-pdf) .edn .pdf
 
-The above rule will assign an icon named `gif.png` from the directory `theme/icons/` to any file with the `.gif` extension.
+The above rule will 
+* assign a FontAwesome icon named `file-pdf` 
+* from the FontAwesome sprite file `theme/solid.svg` 
+* set in the `theme/svg.php` 
+* to any file with the `.edn` and `.pdf` extensions,
+* with the alternate name of *"PDF"* for the images.
 
 This URL path is relative to your site's root.
 
-##Mime Types
+## Mime Types
 
 The default Apaxy theme `theme/apaxy` has icons in place for the following mime types:
 
-    .aif .aif .asf .asx .avi .bin .c .css .csv .dmg .doc .docm .docx .dot .dotm .eps .flv .gif 
-    .htm .html .ico .iff .jar .jpeg .jpg .js .json .log .m3u .m4a .md .mid .mov .mp3 .mp4 .mpa 
-    .mpg .msg .mwa .odt .pages .pdf .pkg .png .ps .psd .ra .rar .rb .rm .rss .rtf .shtml 
-    .sql .srt .swf .tex .tiff .txt .vob .wav .wmv .wpd .wps .xhtml .xlam .xlr .xls .xlsm .xlsx 
-    .xltm .xltx .xml .zip
+    .7z .aac .ai .aif .aifc .aiff .ape .asf .asx .au .avi .bat .bin .bmp .bz2 .c .cab .cmd 
+    .cpp .css .csv .deb .dmg .doc .docm .docx .dot .dotm .dotx .edn .eps .exe .f4a .f4b .f4p 
+    .f4v .flac .flv .gif .gz .h .hex .htm .html .ico .iff .iso .it .jar .jpe .jpeg .jpg .js 
+    .json .log .m3u .m3u8 .m4a .m4v .md .mid .mkv .mod .mov .mp3 .mp4 .mpa .mpg .msg .nfo 
+    .odt .oga .ogg .ogv .pages .pdf .php .phtml .pkg .pls .pls8 .png .ps .psd .py .ra .rar 
+    .rb .rm .rpm .rss .rtf .s3m .sass .scss .sh .shtml .sql .srt .svg .svgz .swf .tar .tex 
+    .tif .tiff .txt .URL .url .vob .wav .wma .wmv .wpd .wps .xhtml .xlam .xlr .xls .xlsm 
+    .xlsx .xltm .xltx .xm .xml .zip 
 
+## Credits
 
-##Credits
-
-Apaxy owes it's existence to the amazing [h5ai](http://larsjung.de/h5ai/) by [Lars Jung](https://twitter.com/lrsjng). Had I not seen this, I would never have looked into making my own (probably way less useful) version.
-
-[Faenza Icons](http://tiheum.deviantart.com/art/Faenza-Icons-173323228) are used in the `apaxy` theme.
+Custom FancyIndexing owes it's existence to [Apaxy](https://github.com/AdamWhitcroft/Apaxy/) by [@adamwhitcroft](https://twitter.com/adamwhitcroft) and [Font Awesome](https://fontawesome.com/)
