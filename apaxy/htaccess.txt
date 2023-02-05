@@ -1,18 +1,28 @@
 #
-# Apaxy by @adamwhitcroft
+# Custom FancyIndexing by @eapo
+# Based on Apaxy by @adamwhitcroft
 #
 # For a full breakdown of the mod_autoindex module:
 # http://apache.org/docs/2.2/mod/mod_autoindex.html
-#
+# 
+# Don't forget to change all of the "/data/theme/" folder to your folder 
+# 
 
 	# ENABLE INDEXING
 	Options +Indexes
 
 	# INDEX OPTIONS
-	IndexOptions +Charset=UTF-8 +FancyIndexing +IgnoreCase +FoldersFirst +XHTML +HTMLTable +SuppressRules +SuppressDescription +NameWidth=* +IconsAreLinks
+	IndexOptions Charset=UTF-8 IgnoreCase FancyIndexing FoldersFirst VersionSort
+	IndexOptions SuppressRules ScanHTMLTitles 
+	IndexOptions DescriptionWidth=* NameWidth=*
+	IndexOptions IconHeight=28 IconWidth=28 IconsAreLinks 
+	# IndexOptions XHTML HTMLTable
+	# IndexOptions SuppressHTMLPreamble
 
-    	# META VIEWPORT
-    	IndexHeadInsert "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />"
+	# META VIEWPORT
+	IndexHeadInsert "<script>document.title = 'Hëj - UdvarhelySzéki Kulturális BeFogadóTér - Arculati elemek';</script> \
+	<link rel='icon' type='image/svg' href='/data/theme/svg.php?q=file-image'>\
+	<meta name='viewport' content='width=device-width, initial-scale=1' />"
 
 	# HIDE /theme DIRECTORY
 	IndexIgnore .htaccess /theme favicon.ico .ftpquota .DS_Store icons *.log *,v *,t .??* *~ *#
@@ -21,63 +31,66 @@
 # GENERAL ICONS (BLANK, DIRECTORY, PARENT DIRECTORY)
 #
 
-	AddIcon theme/icons/blank.png ^^BLANKICON^^
-	AddIcon theme/icons/folder.png ^^DIRECTORY^^
-	AddIcon theme/icons/folder-home.png ..
-	
-	AddIconByType (TEXT,theme/icons/text.png) text/*
-	AddIconByType (IMAGE,theme/icons/image.png) image/*
-	AddIconByType (AUDIO,theme/icons/audio.png) audio/*
-	AddIconByType (VIDEO,theme/icons/video.png) video/*
-	AddIconByType (APP,theme/icons/exe.png) application/*
-
-	AddIconByEncoding (ZIP,theme/icons/zip.png) x-compress x-gzip
+	AddIcon /data/theme/svg.php?q=floppy-disk ^^BLANKICON^^
+	AddIcon /data/theme/svg.php?q=folder ^^DIRECTORY^^
+	AddIcon /data/theme/svg.php?q=folder-closed ..
 
 #
 # EXTENSION SPECIFIC ICONS
 #
 
-	AddIcon (ARCHIVE,theme/icons/archive.png) .7z .bz2 .cab .gz .tar
-	AddIcon (AUDIO,theme/icons/audio.png) .aac .aif .aifc .aiff .ape .au .flac .iff .m4a .mid .mp3 .mpa .ra .wav .wma .f4a .f4b .oga .ogg .xm .it .s3m .mod
-	AddIcon (BIN,theme/icons/bin.png) .bin .hex
-	AddIcon (BMP,theme/icons/bmp.png) .bmp
-	AddIcon (C,theme/icons/c.png) .c
-	AddIcon (CALC,theme/icons/calc.png) .xlsx .xlsm .xltx .xltm .xlam .xlr .xls .csv
-	AddIcon (CD,theme/icons/cd.png) .iso
-	AddIcon (CPP,theme/icons/cpp.png) .cpp
-	AddIcon (CSS,theme/icons/css.png) .css .sass .scss
-	AddIcon (DEB,theme/icons/deb.png) .deb
-	AddIcon (DOC,theme/icons/doc.png) .doc .docx .docm .dot .dotx .dotm .log .msg .odt .pages .rtf .tex .wpd .wps
-	AddIcon (DRAW,theme/icons/draw.png) .svg .svgz
-	AddIcon (EPS,theme/icons/eps.png) .ai .eps
-	AddIcon (EXE,theme/icons/exe.png) .exe
-	AddIcon (GIF,theme/icons/gif.png) .gif
-	AddIcon (H,theme/icons/h.png) .h
-	AddIcon (HTML,theme/icons/html.png) .html .xhtml .shtml .htm .URL .url
-	AddIcon (ICO,theme/icons/ico.png) .ico
-	AddIcon (JAVA,theme/icons/java.png) .jar
-	AddIcon (JPG,theme/icons/jpg.png) .jpg .jpeg .jpe
-	AddIcon (JS,theme/icons/js.png) .js .json
-	AddIcon (MARKDOWN,theme/icons/markdown.png) .md
-	AddIcon (PACKAGE,theme/icons/package.png) .pkg .dmg
-	AddIcon (PDF,theme/icons/pdf.png) .pdf
-	AddIcon (PHP,theme/icons/php.png) .php .phtml
-	AddIcon (PLAYLIST,theme/icons/playlist.png) .m3u .m3u8 .pls .pls8
-	AddIcon (PNG,theme/icons/png.png) .png
-	AddIcon (PS,theme/icons/ps.png) .ps
-	AddIcon (PSD,theme/icons/psd.png) .psd
-	AddIcon (PY,theme/icons/py.png) .py
-	AddIcon (RAR,theme/icons/rar.png) .rar
-	AddIcon (RB,theme/icons/rb.png) .rb
-	AddIcon (RPM,theme/icons/rpm.png) .rpm
-	AddIcon (RSS,theme/icons/rss.png) .rss
-	AddIcon (SCRIPT,theme/icons/script.png) .bat .cmd .sh
-	AddIcon (SQL,theme/icons/sql.png) .sql
-	AddIcon (TIFF,theme/icons/tiff.png) .tiff .tif
-	AddIcon (TEXT,theme/icons/text.png) .txt .nfo
-	AddIcon (VIDEO,theme/icons/video.png) .asf .asx .avi .flv .mkv .mov .mp4 .mpg .rm .srt .swf .vob .wmv .m4v .f4v .f4p .ogv
-	AddIcon (XML,theme/icons/xml.png) .xml
-	AddIcon (ZIP,theme/icons/zip.png) .zip
+	AddIcon (ARCHIVE,/data/theme/svg.php?q=file-zipper) .7z .bz2 .cab .gz .tar
+	AddIcon (AUDIO,/data/theme/svg.php?q=file-audio) .aac .aif .aifc .aiff .ape .au .flac .iff .m4a .mid .mp3 .mpa .ra .wav .wma .f4a .f4b .oga .ogg .xm .it .s3m .mod
+	AddIcon (BIN,/data/theme/svg.php?q=file-code) .bin .hex
+	AddIcon (BMP,/data/theme/svg.php?q=file-image) .bmp
+	AddIcon (C,/data/theme/svg.php?q=file-code) .c
+	AddIcon (CALC,/data/theme/svg.php?q=file-excel) .xlsx .xlsm .xltx .xltm .xlam .xlr .xls .csv
+	AddIcon (CD,/data/theme/svg.php?q=floppy-disk) .iso
+	AddIcon (CPP,/data/theme/svg.php?q=file-code) .cpp
+	AddIcon (CSS,/data/theme/svg.php?q=file-code) .css .sass .scss
+	AddIcon (DEB,/data/theme/svg.php?q=file-zipper) .deb
+	AddIcon (DOC,/data/theme/svg.php?q=file-word) .doc .docx .docm .dot .dotx .dotm .log .msg .odt .pages .rtf .tex .wpd .wps
+	AddIcon (DRAW,/data/theme/svg.php?q=file-image) .svg .svgz
+	AddIcon (EPS,/data/theme/svg.php?q=file-image) .ai .eps
+	AddIcon (EXE,/data/theme/svg.php?q=window-maximize) .exe
+	AddIcon (GIF,/data/theme/svg.php?q=file-image) .gif
+	AddIcon (H,/data/theme/svg.php?q=file-code) .h
+	AddIcon (HTML,/data/theme/svg.php?q=file-code) .html .xhtml .shtml .htm .URL .url
+	AddIcon (ICO,/data/theme/svg.php?q=file-image) .ico
+	AddIcon (JAVA,/data/theme/svg.php?q=file-zipper) .jar
+	AddIcon (JPG,/data/theme/svg.php?q=file-image) .jpg .jpeg .jpe
+	AddIcon (JS,/data/theme/svg.php?q=file-code) .js .json
+	AddIcon (MARKDOWN,/data/theme/svg.php?q=file-code) .md
+	AddIcon (PACKAGE,/data/theme/svg.php?q=floppy-disk) .pkg .dmg
+	AddIcon (PDF,/data/theme/svg.php?q=file-pdf) .pdf
+	AddIcon (PHP,/data/theme/svg.php?q=php) .php .phtml
+	AddIcon (PLAYLIST,/data/theme/svg.php?q=circle-play) .m3u .m3u8 .pls .pls8
+	AddIcon (PNG,/data/theme/svg.php?q=file-image) .png
+	AddIcon (PS,/data/theme/svg.php?q=file-image) .ps
+	AddIcon (PSD,/data/theme/svg.php?q=file-image) .psd
+	AddIcon (PY,/data/theme/svg.php?q=file-code) .py
+	AddIcon (RAR,/data/theme/svg.php?q=file-zipper) .rar
+	AddIcon (RB,/data/theme/svg.php?q=file-code) .rb
+	AddIcon (RPM,/data/theme/svg.php?q=floppy-disk) .rpm
+	AddIcon (RSS,/data/theme/svg.php?q=newspaper) .rss
+	AddIcon (SCRIPT,/data/theme/svg.php?q=file-code) .bat .cmd .sh
+	AddIcon (SQL,/data/theme/svg.php?q=file-lines) .sql
+	AddIcon (TIFF,/data/theme/svg.php?q=file-image) .tiff .tif
+	AddIcon (TEXT,/data/theme/svg.php?q=file-lines) .txt .nfo
+	AddIcon (VIDEO,/data/theme/svg.php?q=file-video) .asf .asx .avi .flv .mkv .mov .mp4 .mpg .rm .srt .swf .vob .wmv .m4v .f4v .f4p .ogv
+	AddIcon (XML,/data/theme/svg.php?q=file-code) .xml
+	AddIcon (ZIP,/data/theme/svg.php?q=file-zipper) .zip
+
+#
+# GENERAL ICONS BY TYPE
+#
+
+	AddIconByType (TEXT,/data/theme/svg.php?q=file-lines) text/*
+	AddIconByType (IMAGE,/data/theme/svg.php?q=file-image) image/*
+	AddIconByType (AUDIO,/data/theme/svg.php?q=file-audio) audio/*
+	AddIconByType (VIDEO,/data/theme/svg.php?q=file-video) video/*
+	AddIconByType (APP,/data/theme/svg.php?q=window-maximize) application/*
+	AddIconByEncoding (ZIP,/data/theme/svg.php?q=file-zipper) x-compress x-gzip
 
 #
 # EXTENSION SPECIFIC DESCRIPTION
@@ -135,6 +148,6 @@
 # THEME FILES
 #
 
-	HeaderName theme/header.html
-	ReadmeName theme/footer.html
-	IndexStyleSheet theme/style.css
+	HeaderName /data/theme/header.html
+	ReadmeName /data/theme/footer.html
+	IndexStyleSheet /data/theme/style.css
