@@ -20,10 +20,10 @@ Apaxy requires an Apache(2.2.11+) enabled HTTP server.
 
 Let's assume you have a folder named `data` in your server root directory (the path thus being `http://mywebsite.com/data`) that you'd like to use as your listing directory:
 
-* [Download](https://github.com/eapo/Custom-FancyIndexing/archive/master.zip) and unzip
-* Copy and paste the contents of the `/apaxy` folder to your `/data` folder.
-* Rename `htaccess.txt` to `.htaccess` in both the `/share` and `/share/theme` folders.
-* [Treat yo'self](https://media.tenor.com/xrldoiZ-bgEAAAAC/bear-dance.gif), you're done.
+1. [Download](https://github.com/eapo/Custom-FancyIndexing/archive/master.zip) and unzip
+2. Copy and paste the contents of the `/apaxy` folder to your `/data` folder.
+3. Rename `htaccess.txt` to `.htaccess` in both the `/share` and `/share/theme` folders.
+4. [Treat yo'self](https://media.tenor.com/xrldoiZ-bgEAAAAC/bear-dance.gif), you're done.
 
 ## Docker images
 
